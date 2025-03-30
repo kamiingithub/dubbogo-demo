@@ -1,0 +1,19 @@
+dubbo:
+  application:
+    name: jsonrpc-server
+  registries:
+    demoZK:
+      protocol: zookeeper
+      timeout: 300s
+      address: 127.0.0.1:2181
+  protocols:
+#    jsonrpc:
+#      name: jsonrpc
+#      port: 20001
+    dubbo:
+      name: dubbo
+      port: 20880
+  provider:
+    services:
+      UserProvider:
+        interface: org.apache.dubbo.samples.UserProvider

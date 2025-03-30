@@ -1,0 +1,13 @@
+dubbo:
+  registries:
+    demoZK:
+      protocol: zookeeper
+      timeout: 180s
+      address: 127.0.0.1:2181
+  consumer:
+    references:
+      DcoCreativeService:
+        interface: api.DcoService
+logger:
+  zap-config:
+    level: debug

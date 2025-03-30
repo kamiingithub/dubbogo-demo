@@ -1,0 +1,23 @@
+dubbo:
+  application:
+    name: jsonrpc-client
+  registries:
+    demoZK:
+      protocol: zookeeper
+      timeout: 322s
+      address: 127.0.0.1:2181
+  consumer:
+    references:
+      GetUserJson:
+        protocol: dubbo
+        interface: org.apache.dubbo.samples.UserProvider
+        request_timeout: 32s
+        connect_timeout: 32s
+      GetUser:
+        protocol: dubbo
+        interface: org.apache.dubbo.samples.UserProvider
+        request_timeout: 32s
+        connect_timeout: 32s
+logger:
+  zap-config:
+    level: debug

@@ -1,0 +1,25 @@
+dubbo:
+  application:
+    name: hessian2rpc-client
+  registries:
+    demoZK:
+      protocol: zookeeper
+      timeout: 322s
+      address: 127.0.0.1:2181
+  consumer:
+    references:
+      GetUserJson:
+        protocol: dubbo
+        interface: org.apache.dubbo.samples.UserProvider
+        serialization: hessian2
+        request_timeout: 32s
+        connect_timeout: 32s
+      GetUser:
+        protocol: dubbo
+        interface: org.apache.dubbo.samples.UserProvider
+        serialization: json # 指定使用 JSON 序列化
+        request_timeout: 32s
+        connect_timeout: 32s
+logger:
+  zap-config:
+    level: debug
